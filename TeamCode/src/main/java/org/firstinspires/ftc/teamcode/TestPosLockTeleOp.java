@@ -94,6 +94,10 @@ public class TestPosLockTeleOp extends OpMode {
             follower.followPath(pathChain.get());
         }
 
+        if(automatedDrive && !follower.isBusy()){
+            follower.breakFollowing();
+        }
+
         //Stop automated following if the follower is done
         if (automatedDrive && (gamepad1.bWasPressed() /*|| !follower.isBusy()*/)) {
             follower.startTeleopDrive();

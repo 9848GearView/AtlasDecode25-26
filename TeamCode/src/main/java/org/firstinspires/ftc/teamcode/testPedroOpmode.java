@@ -19,7 +19,7 @@ import java.util.function.Supplier;
 @TeleOp
 public class testPedroOpmode extends OpMode {
     private Follower follower;
-    public static Pose startingPose = new Pose(56, 8, Math.toRadians(180)); //See ExampleAuto to understand how to use this
+    public static Pose startingPose = new Pose(56, 8, Math.toRadians(90)); //See ExampleAuto to understand how to use this
     private boolean automatedDrive;
     private Supplier<PathChain> pathChain;
     private TelemetryManager telemetryM;
@@ -34,8 +34,8 @@ public class testPedroOpmode extends OpMode {
         telemetryM = PanelsTelemetry.INSTANCE.getTelemetry();
 
         pathChain = () -> follower.pathBuilder() //Lazy Curve Generation
-                .addPath(new Path(new BezierLine(follower::getPose, new Pose(45, 98))))
-                .setHeadingInterpolation(HeadingInterpolator.linearFromPoint(follower::getHeading, Math.toRadians(45), 0.8))
+                .addPath(new Path(new BezierLine(follower::getPose, new Pose(45, 49))))
+                .setHeadingInterpolation(HeadingInterpolator.linearFromPoint(follower::getHeading, Math.toRadians(90), 0.8))
                 .build();
     }
 
